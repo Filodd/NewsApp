@@ -33,7 +33,8 @@ public class NewsActivity extends AppCompatActivity
      * URL for news data from Guardian dataset
      */
     private static final String THE_GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?show-fields=byline&api-key=test";
+            "https://content.guardianapis.com/search";
+
     /* Id for identifying the loader */
     private static final int ARTICLE_LOADER_ID = 1;
 
@@ -134,8 +135,11 @@ public class NewsActivity extends AppCompatActivity
 
         Uri baseUri = Uri.parse(THE_GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter("category", category);
+        uriBuilder.appendQueryParameter("q", category);
         uriBuilder.appendQueryParameter("order-by", orderBy);
+        uriBuilder.appendQueryParameter("api-key", getString(R.string.api_key));
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
+
         return new ArticleLoader(this, uriBuilder.toString());
     }
 
@@ -178,7 +182,3 @@ public class NewsActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 }
-
-
-
-

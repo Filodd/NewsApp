@@ -22,16 +22,20 @@
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_marginRight">16dp</item>
         <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <!-- Style for the author of the article. -->
     <style name="author" parent="Base.TextAppearance.AppCompat.Small">
         <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:layout_weight">1</item>
     </style>
 
     <!-- Style for the date of the article. -->
     <style name="date" parent="Base.TextAppearance.AppCompat.Small">
         <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textStyle">italic</item>
     </style>
 </resources>

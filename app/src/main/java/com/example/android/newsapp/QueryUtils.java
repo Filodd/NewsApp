@@ -200,17 +200,18 @@ public final class QueryUtils {
                         section = articleObject.getString("sectionName");
                     }
 
-
                     String date = "";
                     if (articleObject.has("webPublicationDate")) {
                         date = articleObject.getString("webPublicationDate");
                     }
                     date = formatDate(date);
 
-                    String author = "";
-                    if (articleObject.has("author")) {
-                        author = articleObject.getString("author");
-                    }
+                    String author;
+                    JSONArray tags = articleObject.getJSONArray("tags");
+                    if (tags != null && tags.length() > 0) {
+                        JSONObject tagsObject = tags.getJSONObject(0);
+                        author = tagsObject.optString("webTitle", "No Author");
+                    } else author = "No author name";
 
                     String url = "";
                     if (articleObject.has("webUrl")) {

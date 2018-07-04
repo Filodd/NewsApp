@@ -11,7 +11,7 @@
 
     <EditTextPreference
         android:defaultValue="@string/settings_category_default"
-        android:inputType="text"
+        android:inputType="textCapSentences"
         android:key="@string/settings_category_key"
         android:selectAllOnFocus="true"
         android:title="@string/settings_category_label" />
